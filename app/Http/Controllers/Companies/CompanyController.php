@@ -10,6 +10,11 @@ class CompanyController extends Controller
 {
     private $companyService;
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct(CompanyService $companyService)
     {
         $this->companyService = $companyService;
@@ -18,7 +23,7 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -69,7 +74,9 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company = $this->companyService->getById($id);
+
+        return view('companies.edit', compact('company'));
     }
 
     /**
@@ -81,7 +88,15 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:2|max:191',
+            'email' => 'nullable|email|min:5|max:191',
+            'website' => 'nullable|min:5|max:191'
+        ]);
+
+        $company = $this->companyService->update($id, $request->only('name', 'email', 'website'));
+
+        return redirect()->route('companies.index')->with('success', 'The process was successfully completed.');
     }
 
     /**

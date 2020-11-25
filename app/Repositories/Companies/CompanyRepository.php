@@ -11,4 +11,13 @@ class CompanyRepository extends Repository
     {
         return new Company();
     }
+
+    public function update(Company $company, array $data)
+    {
+        $company->fill($data);
+
+        $company->save();
+
+        return $company;
+    }
 }

@@ -12,6 +12,12 @@
                         <button class="btn btn-success">Create new company</button>
                     </div>
 
+                    @if(session('success'))
+                        <div class="alert alert-success mb-4" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     <div class="card">
                         <div class="card-header">Companies list</div>
 
@@ -35,7 +41,7 @@
                                             <td>{{ $company->website }}</td>
                                             <td class="text-center">
                                                 <a class="btn btn-info btn-sm" href="{{ route('companies.show', $company->id) }}">View</a>
-                                                <button class="btn btn-secondary btn-sm">Edit</button>
+                                                <a class="btn btn-secondary btn-sm" href="{{ route('companies.edit', $company->id) }}">Edit</a>
                                                 <button class="btn btn-danger btn-sm">Delete</button>
                                             </td>
                                         </tr>
