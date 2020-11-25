@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::view('/home', 'home.home')->name('home');
 
 // Companies
-Route::resource('companies', 'Company\CompanyController');
+Route::resource('companies', 'Companies\CompanyController');
