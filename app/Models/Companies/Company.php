@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Companies;
 
 use App\Abstracts\Model;
 
