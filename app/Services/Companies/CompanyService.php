@@ -17,4 +17,9 @@ class CompanyService
     {
         return $this->companyRepository->paginate();
     }
+
+    public function getById($id)
+    {
+        return $this->companyRepository->getById($id);
+    }
 }

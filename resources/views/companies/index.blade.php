@@ -34,7 +34,7 @@
                                             <td>{{ $company->email }}</td>
                                             <td>{{ $company->website }}</td>
                                             <td class="text-center">
-                                                <button class="btn btn-info btn-sm">View</button>
+                                                <a class="btn btn-info btn-sm" href="{{ route('companies.show', $company->id) }}">View</a>
                                                 <button class="btn btn-secondary btn-sm">Edit</button>
                                                 <button class="btn btn-danger btn-sm">Delete</button>
                                             </td>
