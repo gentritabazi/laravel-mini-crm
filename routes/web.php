@@ -19,6 +19,3 @@ Auth::routes(['register' => false, 'verify' => false, 'reset' => false]);
 
 // Welcome
 Route::view('/', 'welcome.welcome');
-
-// Home
-Route::get('/home', 'Home\HomeController@index')->name('home');
