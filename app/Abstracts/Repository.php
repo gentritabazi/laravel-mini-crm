@@ -17,4 +17,9 @@ abstract class Repository
     {
         return $this->model->paginate();
     }
+
+    public function getById($id)
+    {
+        return $this->model->find($id);
+    }
 }
