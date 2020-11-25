@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Auth
-Auth::routes();
+Auth::routes(['register' => false, 'verify' => false, 'reset' => false]);
 
 // Welcome
 Route::view('/', 'welcome.welcome');
