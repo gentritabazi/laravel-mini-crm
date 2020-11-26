@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Companies;
 
-use Illuminate\Http\Request;
 use App\Abstracts\Controller;
 use App\Services\Companies\CompanyService;
 use App\Http\Requests\Companies\CompanyCreateRequest;
