@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     <div class="text-right mb-4">
-                        <button class="btn btn-success">Create new company</button>
+                        <a class="btn btn-success" href="{{ route('companies.create') }}">Create new company</a>
                     </div>
 
                     @if(session('success'))

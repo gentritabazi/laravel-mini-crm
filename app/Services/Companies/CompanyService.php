@@ -23,6 +23,11 @@ class CompanyService
         return $this->companyRepository->getById($id);
     }
 
+    public function create($data)
+    {
+        return $this->companyRepository->create($data);
+    }
+
     public function update($id, $data)
     {
         $company = $this->companyRepository->getById($id);

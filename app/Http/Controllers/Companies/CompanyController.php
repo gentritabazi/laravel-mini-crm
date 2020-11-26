@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Companies;
 use Illuminate\Http\Request;
 use App\Abstracts\Controller;
 use App\Services\Companies\CompanyService;
+use App\Http\Requests\Companies\CompanyCreateRequest;
 use App\Http\Requests\Companies\CompanyUpdateRequest;
 
 class CompanyController extends Controller
@@ -40,18 +41,20 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Companies\CompanyCreateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyCreateRequest $request)
     {
-        //
+        $company = $this->companyService->create($request->validated());
+
+        return redirect()->route('companies.index')->with('success', 'The process was successfully completed.');
     }
 
     /**
