@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Companies;
 use Illuminate\Http\Request;
 use App\Abstracts\Controller;
 use App\Services\Companies\CompanyService;
+use App\Http\Requests\Companies\CompanyUpdateRequest;
 
 class CompanyController extends Controller
 {
@@ -82,19 +83,13 @@ class CompanyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Companies\CompanyUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyUpdateRequest $request, $id)
     {
-        $request->validate([
-            'name' => 'required|min:2|max:191',
-            'email' => 'nullable|email|min:5|max:191',
-            'website' => 'nullable|min:5|max:191'
-        ]);
-
-        $company = $this->companyService->update($id, $request->only('name', 'email', 'website'));
+        $company = $this->companyService->update($id, $request->validated());
 
         return redirect()->route('companies.index')->with('success', 'The process was successfully completed.');
     }
