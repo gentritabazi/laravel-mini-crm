@@ -33,8 +33,9 @@ abstract class Repository
 
         if ($query) {
             $query->delete();
+            return true;
         }
 
-        return true;
+        return false;
     }
 }
