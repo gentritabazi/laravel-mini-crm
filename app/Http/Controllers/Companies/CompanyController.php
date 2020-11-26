@@ -107,6 +107,8 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $company = $this->companyService->delete($id);
+
+        return redirect()->route('companies.index')->with('success', 'The process was successfully completed.');
     }
 }

@@ -42,7 +42,11 @@
                                             <td class="text-center">
                                                 <a class="btn btn-info btn-sm" href="{{ route('companies.show', $company->id) }}">View</a>
                                                 <a class="btn btn-secondary btn-sm" href="{{ route('companies.edit', $company->id) }}">Edit</a>
-                                                <button class="btn btn-danger btn-sm">Delete</button>
+                                                <form method="POST" action="{{ route('companies.destroy', $company->id) }}" class="d-inline-block">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type='submit' class="btn btn-danger btn-sm">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @empty

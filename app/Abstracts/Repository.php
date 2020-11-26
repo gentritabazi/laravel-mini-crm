@@ -22,4 +22,9 @@ abstract class Repository
     {
         return $this->model->find($id);
     }
+
+    public function delete($id)
+    {
+        return $this->model->find($id)->delete();
+    }
 }
