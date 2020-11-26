@@ -16,11 +16,14 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('companies.store') }}">
+                        <form method="POST" action="{{ route('companies.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="text-center mb-4">
-                                <img width="100" height="100" src="{{ asset('images/no-image-available.png') }}">
+                                <div style="width: 30%; margin: 0 auto;">
+                                    <img width="100" height="100" src="{{ asset('images/no-image-available.png') }}">
+                                    <input type="file" name="logo" class="form-control mt-4">
+                                </div>
                             </div>
 
                             <div class="row">

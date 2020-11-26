@@ -2,6 +2,7 @@
 
 namespace App\Services\Companies;
 
+use Illuminate\Support\Facades\Storage;
 use App\Repositories\Companies\CompanyRepository;
 
 class CompanyService
@@ -25,7 +26,15 @@ class CompanyService
 
     public function create($data)
     {
-        return $this->companyRepository->create($data);
+        if (isset($data['logo'])) {
+            $logo = Storage::put('public', $data['logo']);
+
+            $data['logo'] = basename($logo);
+        }
+
+        $company = $this->companyRepository->create($data);
+
+        return $company;
     }
 
     public function update($id, $data)

@@ -16,7 +16,8 @@ class CompanyCreateRequest extends FormRequest
         return [
             'name' => 'required|min:2|max:191',
             'email' => 'nullable|email|min:5|max:191',
-            'website' => 'nullable|min:5|max:191'
+            'website' => 'nullable|min:5|max:191',
+            'logo' => 'bail|nullable|image|dimensions:min_width=100,min_height=100'
         ];
     }
 }
