@@ -25,7 +25,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">No.</th>
+                                        <th class="text-center">ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Website</th>
@@ -33,9 +33,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($companies as $key => $company)
+                                    @forelse($companies as $company)
                                         <tr>
-                                            <td class="text-center">{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $company->id }}</td>
                                             <td>{{ $company->name }}</td>
                                             <td>{{ $company->email }}</td>
                                             <td>{{ $company->website }}</td>
