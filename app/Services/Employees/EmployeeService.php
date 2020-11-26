@@ -2,15 +2,20 @@
 
 namespace App\Services\Employees;
 
+use App\Services\Companies\CompanyService;
 use App\Repositories\Employees\EmployeeRepository;
+use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class EmployeeService
 {
     private $employeeRepository;
 
-    public function __construct(EmployeeRepository $employeeRepository)
+    private $companyService;
+
+    public function __construct(EmployeeRepository $employeeRepository, CompanyService $companyService)
     {
         $this->employeeRepository = $employeeRepository;
+        $this->companyService = $companyService;
     }
 
     public function paginate()
@@ -25,6 +30,12 @@ class EmployeeService
 
     public function create($data)
     {
+        $company = $this->companyService->getById($data['company_id']);
+
+        if (is_null($company)) {
+            throw new UnprocessableEntityHttpException('Selected company is invalid.');
+        }
+
         $employee = $this->employeeRepository->create($data);
 
         return $employee;
