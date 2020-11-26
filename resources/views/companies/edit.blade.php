@@ -32,19 +32,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
                                         <label>Name</label>
-                                        <input class="form-control" name="name" value="{{ $company->name }}">
+                                        <input class="form-control" name="name" value="{{ old('name', $company->name) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
                                         <label>Email</label>
-                                        <input class="form-control" name="email" value="{{ $company->email }}">
+                                        <input class="form-control" name="email" value="{{ old('email', $company->email) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
                                         <label>Website</label>
-                                        <input class="form-control" name="website" value="{{ $company->website }}">
+                                        <input class="form-control" name="website" value="{{ old('website', $company->website) }}">
                                     </div>
                                 </div>
                             </div>
