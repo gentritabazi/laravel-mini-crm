@@ -18,3 +18,6 @@ Route::view('/home', 'home.home')->name('home');
 
 // Companies
 Route::resource('companies', 'Companies\CompanyController');
+
+// Employees
+Route::resource('employees', 'Employees\EmployeeController');
