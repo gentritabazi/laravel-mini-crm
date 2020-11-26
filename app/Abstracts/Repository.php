@@ -6,6 +6,10 @@ abstract class Repository
 {
     protected $model;
 
+    protected $sortProperty = 'id';
+
+    protected $sortDirection = 'DESC';
+
     abstract protected function getModel();
 
     public function __construct()
@@ -15,7 +19,7 @@ abstract class Repository
 
     public function paginate()
     {
-        return $this->model->paginate();
+        return $this->model->orderBy($this->sortProperty, $this->sortDirection)->paginate();
     }
 
     public function getById($id)
