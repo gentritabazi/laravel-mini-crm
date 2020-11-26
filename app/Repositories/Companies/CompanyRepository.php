@@ -31,4 +31,11 @@ class CompanyRepository extends Repository
 
         return $company;
     }
+
+    public function delete(Company $company)
+    {
+        $company->delete();
+
+        return true;
+    }
 }

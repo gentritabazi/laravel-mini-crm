@@ -26,16 +26,4 @@ abstract class Repository
     {
         return $this->model->find($id);
     }
-
-    public function delete($id)
-    {
-        $query = $this->model->find($id);
-
-        if ($query) {
-            $query->delete();
-            return true;
-        }
-
-        return false;
-    }
 }

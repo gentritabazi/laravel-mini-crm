@@ -46,6 +46,15 @@ class CompanyService
 
     public function delete($id)
     {
-        return $this->companyRepository->delete($id);
+        $company = $this->companyRepository->getById($id);
+        $companyLogo = $company->logo;
+
+        $companyDeleted = $this->companyRepository->delete($company);
+
+        if ($companyDeleted && $companyLogo) {
+            Storage::delete('public/'. $companyLogo);
+        }
+
+        return true;
     }
 }
