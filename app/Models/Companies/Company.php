@@ -3,6 +3,7 @@
 namespace App\Models\Companies;
 
 use App\Abstracts\Model;
+use App\Models\Companies\Employee;
 
 class Company extends Model
 {
@@ -18,4 +19,12 @@ class Company extends Model
         'address',
         'website'
     ];
+
+    /**
+     * Get employees.
+     */
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
 }
