@@ -82,9 +82,10 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
+        $companies = $this->companyService->get();
         $employee = $this->employeeService->getById($id);
 
-        return view('employees.edit', compact('employee'));
+        return view('employees.edit', compact('employee', 'companies'));
     }
 
     /**
