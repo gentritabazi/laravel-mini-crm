@@ -17,6 +17,11 @@ abstract class Repository
         $this->model = $this->getModel();
     }
 
+    public function get()
+    {
+        return $this->model->orderBy($this->sortProperty, $this->sortDirection)->get();
+    }
+
     public function paginate()
     {
         return $this->model->orderBy($this->sortProperty, $this->sortDirection)->paginate();

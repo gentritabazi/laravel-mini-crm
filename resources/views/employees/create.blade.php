@@ -49,7 +49,12 @@
                                 <div class="col-md-8">
                                     <div class="form-group form-group-default">
                                         <label>Company</label>
-                                        <input class="form-control" name="company_id" value="{{ old('company_id') }}">
+                                        <select class="form-control" name="company_id" value="{{ old('company_id') }}">
+                                            <option>Select...</option>
+                                            @foreach($companies as $company)
+                                                <option value="{{ $company->id }}" {{ (old("company_id") == $company->id ? "selected": "") }}>{{ $company->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>

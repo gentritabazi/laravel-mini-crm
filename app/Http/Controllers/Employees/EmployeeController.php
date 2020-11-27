@@ -6,19 +6,22 @@ use App\Abstracts\Controller;
 use App\Services\Employees\EmployeeService;
 use App\Http\Requests\Employees\EmployeeCreateRequest;
 use App\Http\Requests\Employees\EmployeeUpdateRequest;
+use App\Services\Companies\CompanyService;
 
 class EmployeeController extends Controller
 {
     private $employeeService;
+    private $companyService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(EmployeeService $employeeService)
+    public function __construct(EmployeeService $employeeService, CompanyService $companyService)
     {
         $this->employeeService = $employeeService;
+        $this->companyService = $companyService;
     }
 
     /**
@@ -40,7 +43,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employees.create');
+        $companies = $this->companyService->get();
+
+        return view('employees.create', compact('companies'));
     }
 
     /**

@@ -14,6 +14,11 @@ class CompanyService
         $this->companyRepository = $companyRepository;
     }
 
+    public function get()
+    {
+        return $this->companyRepository->get();
+    }
+
     public function paginate()
     {
         return $this->companyRepository->paginate();
