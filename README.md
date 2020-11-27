@@ -15,7 +15,7 @@ The project is Mini CRM built with Laravel.
 * Default Bootstrap-based design theme, but removed ability to register.
 * Services.
 * Repositories
-* Abstracts Classes.
+* Abstract Classes.
 
 ## Installation
 
