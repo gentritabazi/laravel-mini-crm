@@ -3,7 +3,7 @@
 namespace App\Models\Companies;
 
 use App\Abstracts\Model;
-use App\Models\Companies\Employee;
+use App\Models\Employees\Employee;
 
 class Company extends Model
 {
