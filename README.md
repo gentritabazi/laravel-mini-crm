@@ -20,8 +20,8 @@ The project is Mini CRM built with Laravel.
 ## Installation
 
 * Make sure you have `composer` installed in your machine.
-* Clone the repo: `git clone https://github.com/gentritabazi01/Laravel-Mini-CRM.git`
-Navigate to {PROJECT-PATH} where {PROJECT-PATH} is the path where you cloned project.
+* Clone the repo: `git clone https://github.com/gentritabazi01/Laravel-Mini-CRM.git`.
+* Navigate to {PROJECT-PATH} where {PROJECT-PATH} is the path where you cloned project.
 * Run ``copy .env.example .env`` and after file `.env` is copied you need to set database credentials into `.env` file.
 * Run ``composer install``.
 * Run ``php artisan key:generate``.
